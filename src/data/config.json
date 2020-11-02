@@ -1,0 +1,10 @@
+{
+    "coin": "https://cdn.discordapp.com/emojis/498508040346271744.png?v=1",
+    "mongodb":{
+        "user":"memer",
+        "pwd":"4516"
+    },
+    "prefixes": ["pls", "<@$772133470642241596>", "<@!772133470642241596>"],
+    "support": "",
+    "token": ""
+}

@@ -1,0 +1,16 @@
+{
+  "name": "dank-memer-ripoff",
+  "version": "1.0.0",
+  "description": "modified old dank memer code (which is publicly available), currency commands only tho :-(",
+  "main": "memer.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "maxi#7777, MaxiEurope... idk? originally melmsie lol",
+  "dependencies": {
+    "discord.js": "^12.4.1",
+    "discord.js-light": "^3.3.4",
+    "eslint": "^7.12.1",
+    "mongoose": "^5.10.11"
+  }
+}
