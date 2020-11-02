@@ -18,7 +18,7 @@ module.exports = {
             return message.channel.send('You need to bet something.').catch(() => {});
         }
         if (isNaN(bet)) {
-            if (bet === 'all') {
+            if (['all', 'max'].some(e => bet === e)) {
                 bet = pocket;
             } else if (bet === 'half') {
                 bet = Math.round(pocket / 2);

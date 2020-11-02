@@ -27,7 +27,7 @@ module.exports = {
                 bank,
                 pocket
             } = await util.getDBUser(user.id, {
-                isBot: user.bot
+                create: false
             });
             const e = new discord.MessageEmbed()
                 .setTitle(`Here is ${user.username}'s balance`)

@@ -218,13 +218,13 @@ const util = {
     },
     /** db related methods */
     getDBUser: async function (id, {
-        isBot = false
+        create = true
     } = {}) {
         const res = await models.user.findOne({
             userID: id
         });
         if (res === null) {
-            if (isBot === false) {
+            if (create === true) {
                 await this.setDBUser(id);
             }
             return {
@@ -296,7 +296,7 @@ const util = {
                 streak: 0,
                 time: 0
             },
-            donor: true
+            donor: true /** change this */
         }).save();
     }
 };

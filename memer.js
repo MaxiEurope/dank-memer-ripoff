@@ -18,10 +18,7 @@ const discord = require('discord.js-light');
 const memer = new discord.Client({
     cacheGuilds: true,
     cacheChannels: true,
-    cacheOverwrites: false,
-    cacheRoles: true,
     cacheEmojis: true,
-    cachePresences: false,
     fetchAllMembers: true,
     messageSweepInterval: 10,
     messageCacheLifetime: 10,
@@ -34,7 +31,26 @@ const memer = new discord.Client({
         activity: {
             name: 'pls help'
         }
-    }
+    },
+    disabledEvents: [
+        'GUILD_INTEGRATIONS_UPDATE',
+        'GUILD_ROLE_CREATE',
+        'GUILD_ROLE_DELETE',
+        'GUILD_ROLE_UPDATE',
+        'GUILD_EMOJIS_UPDATE',
+        'CHANNEL_DELETE',
+        'CHANNEL_PINS_UPDATE',
+        'MESSAGE_DELETE',
+        'MESSAGE_UPDATE',
+        'MESSAGE_DELETE_BULK',
+        'MESSAGE_BULK_DELETE',
+        'MESSAGE_REACTION_REMOVE_ALL',
+        'TYPING_START',
+        'TYPING_STOP',
+        'VOICE_BROADCAST_SUBSCRIBE',
+        'VOICE_BROADCAST_UNSUBSCRIBE',
+        'VOICE_SERVER_UPDATE'
+    ]
 });
 memer.login(config.token);
 /** commands */
@@ -57,7 +73,8 @@ memer.on('message', async message => {
     if (message.author.bot || message.channel.type !== 'text') return;
 
     let prefix;
-    for (const p of config.prefixes) {
+    for (let p of config.prefixes) {
+        if (p.includes('botid')) p = p.replace('botid', memer.user.id);
         if (message.content.toLowerCase().startsWith(p)) {
             prefix = p;
             break;
@@ -87,7 +104,7 @@ memer.on('message', async message => {
             .setTitle('Slow it down, cmon')
             .setDescription(`${(cooldown.message==='')?'Try again in':cooldown.message} ${(timeLeft > 60 ? `**${util.parseTime(timeLeft)}**` : `**${timeLeft.toFixed()} seconds**`)}\n\n` +
                 `__Default Cooldown__: ${util.parseTime(cooldown.defaultCD/1000)}\n\n` +
-                'While you wait, go check our our [Twitter](https://twitter.com/dankmemerbot), [Subreddit](https://www.reddit.com/r/dankmemer/), and [Discord Server](https://www.discord.gg/Wejhbd4)')
+                'While you wait, go check out our [Twitter](https://twitter.com/dankmemerbot), [Subreddit](https://www.reddit.com/r/dankmemer/), and [Discord Server](https://www.discord.gg/Wejhbd4)')
             .setColor('#3f51b5');
         return message.channel.send(e).catch(() => {});
     } else {
