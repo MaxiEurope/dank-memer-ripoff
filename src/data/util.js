@@ -189,6 +189,10 @@ const util = {
             text += '4/20 + 4:20\n';
             unlocked += 1;
         }
+        total += 111;
+        text += 'Retard bonus <:head:733010536278655120>';
+        unlocked += 1;
+        
         return {
             total: total,
             text: text,

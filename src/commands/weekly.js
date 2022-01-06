@@ -6,7 +6,7 @@ module.exports = {
     async execute(memer, message) {
 
         await util.addCD(message.author.id, this.name, {
-            cd: 604800000,
+            cd: 604800000, // one week obviously
             msg: 'I\'m not made of money dude, wait'
         });
 

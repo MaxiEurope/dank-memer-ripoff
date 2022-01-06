@@ -55,6 +55,8 @@ const memer = new discord.Client({
 memer.login(config.token);
 /** commands */
 memer.commands = new discord.Collection();
+/** config */
+memer.config = config;
 /** load cmds */
 const commandsInDir = fs.readdirSync('./src/commands').filter(file => file.endsWith('.js'));
 for (const file of commandsInDir) {
@@ -115,4 +117,12 @@ memer.on('message', async message => {
         }
     }
 
+});
+
+/** catch dem errors */
+process.on('uncaughtException', exception => {
+    console.error(exception);
+});
+process.on('unhandledRejection', rejection => {
+    console.error(rejection);
 });

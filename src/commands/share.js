@@ -32,7 +32,7 @@ module.exports = {
         }
 
         await util.addCD(message.author.id, this.name, {
-            cd: 1200000
+            cd: 60000
         });
 
         const takerCoins = await util.updateDBUser(user.id, {

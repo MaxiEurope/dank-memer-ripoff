@@ -16,7 +16,7 @@ module.exports = {
         }
 
         await util.addCD(message.author.id, this.name, {
-            cd: 2592000000,
+            cd: 2592000000, // one month
             msg: 'You have to wait'
         });
 

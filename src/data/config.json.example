@@ -1,0 +1,11 @@
+{
+    "coin": "https://cdn.discordapp.com/emojis/498508040346271744.png?v=1",
+    "mongodb":{
+        "user":"",
+        "pwd":""
+    },
+    "owner": "",
+    "prefixes": ["pls", "<@botid>", "<@!botid>"],
+    "support": "",
+    "token": ""
+}

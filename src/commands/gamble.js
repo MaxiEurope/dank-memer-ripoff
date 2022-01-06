@@ -42,7 +42,7 @@ module.exports = {
         }
 
         await util.addCD(message.author.id, this.name, {
-            cd: 50000,
+            cd: 5000,
             msg: 'If I let you bet whenever you wanted, you\'d be a lot more poor. Wait'
         });
 
@@ -61,7 +61,7 @@ module.exports = {
             await util.updateDBUser(message.author.id, {
                 pocket: winnings
             });
-            return message.channel.send(`You won **${winnings.toLocaleString()}** coins. \n**Multiplier**: ${total}% | **Percent of bet won**: ${winnings.toFixed(2) * 100}%`).catch(() => {});
+            return message.channel.send(`You won **${winnings.toLocaleString()}** coins. \n**Multiplier**: ${total}% | **Percent of bet won**: ${(winnings * 100).toFixed(2)}%`).catch(() => {});
         } else if (random > 0.65) {
             let winAmount = Math.random() + 0.4;
             let winnings = Math.round(bet * winAmount);
@@ -73,7 +73,7 @@ module.exports = {
             await util.updateDBUser(message.author.id, {
                 pocket: winnings
             });
-            return message.channel.send(`You won **${winnings.toLocaleString()}** coins. \n**Multiplier**: ${total}% | **Percent of bet won**: ${winAmount.toFixed(2) * 100}%`).catch(() => {});
+            return message.channel.send(`You won **${winnings.toLocaleString()}** coins. \n**Multiplier**: ${total}% | **Percent of bet won**: ${(winAmount * 100).toFixed(2)}%`).catch(() => {});
         } else {
             await util.updateDBUser(message.author.id, {
                 pocket: bet * (-1)

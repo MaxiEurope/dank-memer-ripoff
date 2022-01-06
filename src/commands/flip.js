@@ -32,7 +32,7 @@ module.exports = {
             const content = choice.array()[0].content.toLowerCase();
             if (content.includes('heads')) {
                 await util.addCD(message.author.id, this.name, {
-                    cd: 30000
+                    cd: 5000
                 });
 
                 if (coinFlip === heads) {
@@ -45,7 +45,7 @@ module.exports = {
                 }
             } else if (content.includes('tails')) {
                 await util.addCD(message.author.id, this.name, {
-                    cd: 30000
+                    cd: 5000
                 });
 
                 if (coinFlip === tails) {
